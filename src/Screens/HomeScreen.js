@@ -28,7 +28,7 @@ render() {
               <Button transparent>
                 <Icon name='search' />
               </Button>
-              <Button transparent onPress={() => {this.props.navigation.navigate('ModalScreen');}}>
+              <Button transparent onPress={() => {this.props.navigation.navigate('ModalScreen')}}>
                 <Icon name='heart' />
               </Button>
               <Button transparent>

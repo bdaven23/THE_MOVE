@@ -19,6 +19,11 @@ import {
 import {Container, Header, Left, Body, Right, Button, Icon, Title , Content} from 'native-base';
 import { TabNavigator, StackNavigator , DrawerNavigator} from 'react-navigation';
 
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
+import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import IconIonicons from 'react-native-vector-icons/Ionicons';
+import IconFeather from 'react-native-vector-icons/Feather';
+
 import PanController from './PanController';
 import PriceMarker from './AnimatedPriceMarker';
 
@@ -369,12 +374,6 @@ class HomeScreen extends React.Component {
               );
             })}
 
-            <TouchableOpacity
-            style={styles.drawerButton}
-            onPress={() => {this.props.navigation.openDrawer();}}>
-              <Icon name='menu' />
-            </TouchableOpacity>
-
           </AnimatedMap>
           <View style={styles.itemContainer}>
             {markers.map((marker, i) => {
@@ -401,11 +400,27 @@ class HomeScreen extends React.Component {
                   </Animated.View>
                 );
             })}
-            <TouchableOpacity
-            style={styles.drawerButton}
-            onPress={() => {this.props.navigation.openDrawer();}}>
-              <Icon name='menu' />
+
+            <TouchableOpacity style={styles.navigationButton}
+            onPress={() => {this.props.navigation.navigate('ModalScreen');}}>
+              <IconFeather name='navigation' size={26} />
             </TouchableOpacity>
+
+            <TouchableOpacity style={styles.notificationButton}
+            onPress={() => {this.props.navigation.navigate('ModalScreen');}}>
+              <IconFontAwesome name='exclamation' size={26} />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.filterButton}
+            onPress={() => {this.props.navigation.navigate('ModalScreen');}}>
+              <IconFontAwesome name='filter' size={26} />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.drawerButton}
+            onPress={() => {this.props.navigation.openDrawer();}}>
+              <IconIonicons name='md-menu' size={26} />
+            </TouchableOpacity>
+
           </View>
         </PanController>
       </View>
@@ -450,6 +465,32 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  filterButton:{
+    position: 'absolute',
+    top:20,
+    left:screen.width - 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width:40,
+  },
+  notificationButton:{
+    position: 'absolute',
+    top:60,
+    left:screen.width - 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width:40,
+  },
+  navigationButton:{
+    position: 'absolute',
+    top:100,
+    left:screen.width - 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width:40,
+  },
+
+
 });
 
 export default HomeScreen;

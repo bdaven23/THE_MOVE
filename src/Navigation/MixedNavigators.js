@@ -19,7 +19,7 @@ import DrawerScreen from './DrawerScreen';
 //PUSH STACK
 const HomeModalStack = StackNavigator({
 
-  HomeScreen:HomeScreen,
+  HomeScreen:MapScreen,
 
 
   HomeDetailScreen:HomeDetailScreen,
@@ -155,7 +155,7 @@ export default Drawer = DrawerNavigator ({
   },
 
   MapView:{
-    screen:MapScreen
+    screen: HomeScreen
   },
 
 },{
