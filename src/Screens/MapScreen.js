@@ -5,7 +5,8 @@ import {
   Dimensions,
   Animated,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Image,
 } from 'react-native';
 
 import {
@@ -396,10 +397,25 @@ class HomeScreen extends React.Component {
                       { scale },
                     ],
                   }]}>
-                    <Text>amount</Text>
+
+                    <View style={styles.flyerImageView}></View>
+                    <Text>Event Name</Text>
+                    <Text>Event Description</Text>
+                    <View style={styles.profileImageView}></View>
+                    <Text>Host Name</Text>
+                    <Text>Start Time</Text>
+                    <Text>End Time</Text>
+                    <Text>Address</Text>
+                    
                   </Animated.View>
                 );
             })}
+
+            <View style={styles.logoView}>
+              <Image
+                style={{ width: 110, height: 60}}
+                source={require('./Images/The_Move_Logo-02.png')} />
+            </View>
 
             <TouchableOpacity style={styles.navigationButton}
             onPress={() => {this.props.navigation.navigate('ModalScreen');}}>
@@ -457,6 +473,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderRadius: 3,
     borderColor: '#000',
+
   },
   drawerButton:{
     position: 'absolute',
@@ -489,8 +506,27 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width:40,
   },
-
-
+  flyerImageView:{
+    width:ITEM_WIDTH,
+    height:ITEM_WIDTH,
+    backgroundColor: 'blue',
+  },
+  profileImageView:{
+    width:60,
+    height:60,
+    backgroundColor: 'green',
+    borderRadius: 30,
+    left:10,
+  },
+  logoView:{
+    position: 'absolute',
+    top:20,
+    left:screen.width / 2 - 60,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width:110,
+    height:60,
+  },
 });
 
 export default HomeScreen;
